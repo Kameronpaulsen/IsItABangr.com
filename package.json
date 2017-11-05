@@ -1,0 +1,19 @@
+{
+  "name": "is_it_a_bangr_.com",
+  "version": "1.0.0",
+  "description": "A website to tell you if a song is a bangr",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kameronpaulsen/IsItABangr.com.git"
+  },
+  "author": "kameron paulsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kameronpaulsen/IsItABangr.com/issues"
+  },
+  "homepage": "https://github.com/Kameronpaulsen/IsItABangr.com#readme"
+}
