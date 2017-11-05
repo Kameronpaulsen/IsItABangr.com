@@ -13,17 +13,23 @@
 		<!--Custom Fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Chango" rel="stylesheet">
 
-		<title> Is It A Fad? </title>
+		<title> IsItABanger?</title>
 	</head>
 
 
 	<body>
+		<div class="container">
+			<div class="row text-center">
+					<img src="../public/images/banger.jpg" class="img-repsonsive" style="padding-top:10%;max-height:30vh">
+
+			</div>
+		</div>
 		<div class="container-fluid">
 			<div class="row text-center">
 				<div class="col-lg-4"></div>
 				<div class="col-lg-4">
 					<div class="header">
-						<h1>Is It A Fad?</h1>
+						<h1>Is It A Banger?</h1>
 					</div>
 				</div>
 				<div class="col-lg-4">
@@ -52,21 +58,20 @@
 	</body>
 
 	<script>
-		
 		$(document).ready(function(){
 			$(document).keypress(function(e){
 				if(e.which ==13)
 				{
 					if(!($('#searchText').val() === "")){
-					var searchText = $('#search').val();
-					console.log(searchText);
-					$.ajax({
-						url: '/googletrends/' + searchText,
-						type: "GET",
-						success: function(results) {
-							search(results);
-						}
-					});
+						var searchText = $('#search').val();
+						console.log(searchText);
+						$.ajax({
+							url: '/googletrends/' + searchText,
+							type: "GET",
+							success: function(results) {
+								search(results);
+							}
+						});
 					}
 					else
 					{

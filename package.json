@@ -2,7 +2,7 @@
   "name": "is_it_a_bangr_.com",
   "version": "1.0.0",
   "description": "A website to tell you if a song is a bangr",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
