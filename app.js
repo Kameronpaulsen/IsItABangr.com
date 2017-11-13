@@ -73,7 +73,7 @@ request.post(authOptions, function(error, response, body) {
 });
 
 app.get('/search/:keyword?', function(req,res){
-	var artist = {keyword: req.params.keyword}
+	var artist = req.params.keyword
 	console.log(artist);
 	var id;
 	console.log({keyword: req.params.keyword})

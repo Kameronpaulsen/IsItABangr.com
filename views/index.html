@@ -84,7 +84,6 @@
 		$(document).ready(function(){
 			$('#searchBtn').on('click', function(){
 				var searchText = $('#search').val();
-				console.log(searchText);
 				$.ajax({
 					url: '/search/' + searchText,
 					type: "GET",
