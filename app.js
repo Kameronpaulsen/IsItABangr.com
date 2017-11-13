@@ -83,6 +83,7 @@ app.get('/search', function(req,res){
 	}
 	request.get(options, function(error, result, body) {
 		console.log(JSON.stringify(body));
+		console.log(result);
 		responseText = JSON.stringify(body);
 	});
 	res.send(responseText);
