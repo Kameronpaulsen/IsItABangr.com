@@ -92,8 +92,8 @@ app.get('/search/:keyword?', function(req,res){
 			'Authorization': 'Bearer ' + token
 		},
 		json: true
-		console.log(id);
 	}
+	console.log(id);
 	request.get(options, function(error, result, body) {
 				console.log(body);
 		res.send(result);
