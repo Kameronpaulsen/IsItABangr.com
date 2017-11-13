@@ -73,7 +73,7 @@ request.post(authOptions, function(error, response, body) {
 });
 
 app.get('/search', function(req,res){
-	var responseText;
+	var result;
 	var options = {
 		url: 'https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02',
 		headers: {
@@ -84,9 +84,9 @@ app.get('/search', function(req,res){
 	request.get(options, function(error, result, body) {
 		console.log(JSON.stringify(body));
 		console.log(result);
-		responseText = JSON.stringify(body);
+		result = JSON.stringify(body);
 	});
-	res.send(responseText);
+	res.send(result);
 	res.end();
 });
 
