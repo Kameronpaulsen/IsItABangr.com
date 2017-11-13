@@ -86,9 +86,9 @@
 				var searchText = $('#search').val();
 				console.log(searchText);
 				$.ajax({
-					url: "/search",
+					url: '/search',
 					type: "GET",
-					'Authorization': 'Bearer ' + token
+					'Authorization': 'Bearer ' + token,
 					success: function(results) {
 						search(results);
 					}
