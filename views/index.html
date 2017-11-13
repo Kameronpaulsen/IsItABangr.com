@@ -86,7 +86,7 @@
 				var searchText = $('#search').val();
 				console.log(searchText);
 				$.ajax({
-					url: '/search',
+					url: '/search/' + searchText,
 					type: "GET",
 					success: function(results) {
 						console.log(results);
