@@ -44,56 +44,57 @@ var server = app.listen(2000, function(){
 
 // your application requests authorization
 var authOptions = {
-  url: 'https://accounts.spotify.com/api/token',
-  headers: {
-    'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
-  },
-  form: {
-    grant_type: 'client_credentials'
-  },
-  json: true
+	url: 'https://accounts.spotify.com/api/token',
+	headers: {
+		'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+	},
+	form: {
+		grant_type: 'client_credentials'
+	},
+	json: true
 };
 
 request.post(authOptions, function(error, response, body) {
-  if (!error && response.statusCode === 200) {
+	if (!error && response.statusCode === 200) {
 
     // use the access token to access the Spotify Web API
     token = body.access_token;
     var options = {
-      url: 'https://api.spotify.com/v1',
-      headers: {
-        'Authorization': 'Bearer ' + token
-      },
-      json: true
+    	url: 'https://api.spotify.com/v1',
+    	headers: {
+    		'Authorization': 'Bearer ' + token
+    	},
+    	json: true
     };
     request.get(options, function(error, response, body) {
-      console.log(body);
+    	console.log(body);
     });
-  }
+}
 });
 
 app.get('/search', function(req,res){
 	var options = {
-      url: 'https://api.spotify.com/v1/06HL4z0CvFAxyc27GXpf02',
-      headers: {
-        'Authorization': 'Bearer ' + token
-      },
-      json: true
-    };
-    request.post(authOptions, function(error, response, body) {
-  		if (!error && response.statusCode === 200) {
-    var options = {
-      url: 'https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02',
-      headers: {
-        'Authorization': 'Bearer ' + token
-      },
-      json: true
-    };
-    request.get(options, function(error, response, body) {
-      console.log(JSON.stringify(body));
-    });
-  }
-		});
+		url: 'https://api.spotify.com/v1/06HL4z0CvFAxyc27GXpf02',
+		headers: {
+			'Authorization': 'Bearer ' + token
+		},
+		json: true
+	};
+	request.post(authOptions, function(error, response, body) {
+		if (!error && response.statusCode === 200) {
+			var options = {
+				url: 'https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02',
+				headers: {
+					'Authorization': 'Bearer ' + token
+				},
+				json: true
+			};
+			request.get(options, function(error, response, body) {
+				console.log(JSON.stringify(body));
+				response.send(JSON.stringify(body))
+			});
+		}
+	});
 });
 
 
