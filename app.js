@@ -94,6 +94,10 @@ app.get('/search/:keyword?', function(req,res){
 		},
 		json: true
 	}
+	request.get(options, function(error, result, body) {
+		id = body.artists.items[1].id;
+		console.log(id);
+	});
 	res.send(result);
 });
 
