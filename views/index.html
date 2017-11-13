@@ -86,7 +86,7 @@
 				var searchText = $('#search').val();
 				console.log(searchText);
 				$.ajax({
-					url: 'https://api.spotify.com/v1/artists/'+searchTest'/top-tracks',
+					url: '"https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02/top-tracks?country=US" -H "Accept: application/json" -H "Authorization: Bearer BQD82BGUEiza7kIH_xvztdbKyeTnw6Q1-Ux1GecD4jmbeIC_44ge4hyVjQuHf7VRbHLwx2sRSmZpHWTk4CQXpnMkHOxjhbVNreOU8c2G4oXLxVi4Rt05MQs4ArKVudURWf2SmTe_f7Y",
 					type: "GET",
 					success: function(results) {
 						search(results);
