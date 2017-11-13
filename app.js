@@ -74,6 +74,7 @@ request.post(authOptions, function(error, response, body) {
 
 app.get('/search/:keyword?', function(req,res){
 	var results;
+	console.log({keyword: req.params.keyword})
 	var options = {
 		url: 'https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02',
 		headers: {
