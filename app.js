@@ -73,7 +73,6 @@ request.post(authOptions, function(error, response, body) {
 });
 
 app.get('/search/:keyword?', function(req,res){
-	var results;
 	var artist = {keyword: req.params.keyword}
 	var id;
 	console.log({keyword: req.params.keyword})
@@ -85,10 +84,10 @@ app.get('/search/:keyword?', function(req,res){
 		json: true
 	}
 	request.get(options, function(error, result, body) {
-		console.log(JSON.stringify(body));
-		console.log(result);
-		results = JSON.stringify(body);
-		res.send(results);
+		jsonResult = JSON.parse(result);
+		id = jsonResult.artist.id;
+		console.log(id);
+		res.send(result);
 	});
 });
 
