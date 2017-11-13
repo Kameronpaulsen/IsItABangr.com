@@ -73,7 +73,7 @@ request.post(authOptions, function(error, response, body) {
 });
 
 app.get('/search', function(req,res){
-	res.send("test");
+	res.send("" + token);
 	console.log(token);
 });
 
