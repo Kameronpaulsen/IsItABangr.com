@@ -80,11 +80,9 @@ app.get('/search', function(req,res){
       },
       json: true
     };
-    request.post(options,function(error,response,body){
-    	request.get(options,function(error,response,body){
-    		console.log(body);
-    	});
-    })
+    http.get(options,function(res){
+    	console.log(res);
+    }
 });
 
 
