@@ -94,6 +94,7 @@ app.get('/search/:keyword?', function(req,res){
 		json: true
 	}
 	request.get(options, function(error, result, body) {
+		console.log(id);
 		console.log(body);
 		res.send(result);
 	});
