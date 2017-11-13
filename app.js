@@ -73,7 +73,7 @@ request.post(authOptions, function(error, response, body) {
 });
 
 app.get('/search', function(req,res){
-	var body;
+	var responseText;
 	var options = {
 		url: 'https://api.spotify.com/v1/06HL4z0CvFAxyc27GXpf02',
 		headers: {
@@ -92,11 +92,11 @@ app.get('/search', function(req,res){
 			};
 			request.get(options, function(error, result, body) {
 				console.log(JSON.stringify(body));
-				body = body;
+				responseText = JSON.stringify(body);
 			});
 		}
 	});
-	req.send(body);
+	res.send(responseText);
 });
 
 
