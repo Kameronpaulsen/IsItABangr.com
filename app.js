@@ -97,8 +97,8 @@ app.get('/search/:keyword?', function(req,res){
 	}
 	request.get(options, function(error, result, body) {
 		console.log(id);
+		res.send(result);
 	});
-	res.send(result);
 });
 
 
