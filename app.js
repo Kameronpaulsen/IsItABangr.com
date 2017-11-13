@@ -85,6 +85,7 @@ app.get('/search/:keyword?', function(req,res){
 	}
 	request.get(options, function(error, result, body) {
 		id = body.artists.items[1].id;
+		console.log(id);
 	});
 	var options = {
 		url: 'https://api.spotify.com/v1/artists/' + id,
@@ -93,7 +94,6 @@ app.get('/search/:keyword?', function(req,res){
 		},
 		json: true
 	}
-	console.log(id);
 	request.get(options, function(error, result, body) {
 				console.log(body);
 		res.send(result);
