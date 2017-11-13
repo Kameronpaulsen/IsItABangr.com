@@ -86,8 +86,15 @@ app.get('/search/:keyword?', function(req,res){
 	request.get(options, function(error, result, body) {
 		id = body.artists.items[1].id;
 		console.log(id);
-		res.send(result);
 	});
+	var options = {
+		url: 'https://api.spotify.com/v1//artists/' + id,
+		headers: {
+			'Authorization': 'Bearer ' + token
+		},
+		json: true
+	}
+	res.send(result);
 });
 
 
