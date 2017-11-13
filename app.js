@@ -84,6 +84,7 @@ app.get('/search/:keyword?', function(req,res){
 		json: true
 	}
 	request.get(options, function(error, result, body) {
+		console.log(result);
 		console.log(JSON.parse(result.artist.items));
 		res.send(result);
 	});
