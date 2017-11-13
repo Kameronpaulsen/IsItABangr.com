@@ -92,9 +92,6 @@ app.get('/search/:keyword?', function(req,res){
 	});
 	var options = {
 		url: 'https://api.spotify.com/v1/artist/' + id,
-		headers: {
-			'Authorization': 'Bearer ' + token
-		},
 		json: true
 	}
 	request.get(options, function(error, result, body) {
