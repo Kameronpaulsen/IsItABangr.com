@@ -73,8 +73,18 @@ request.post(authOptions, function(error, response, body) {
 });
 
 app.get('/search', function(req,res){
-	res.send("" + token);
-	console.log(token);
+	var options = {
+      url: 'https://api.spotify.com/v1/06HL4z0CvFAxyc27GXpf02',
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      json: true
+    };
+    request.get(options, function(error, response, body) {
+      console.log(body);
+    });
+	res.send("" + body);
+	console.log(body);
 });
 
 
