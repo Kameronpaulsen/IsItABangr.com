@@ -81,10 +81,10 @@ app.get('/search', function(req,res){
       json: true
     };
     request.get(options, function(error, response, body) {
-      console.log(body);
+      console.log(response);
     });
-	res.send("" + body);
-	console.log(body);
+	res.send("" + );
+	console.log(response);
 });
 
 
