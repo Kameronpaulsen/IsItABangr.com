@@ -84,9 +84,9 @@ app.get('/search', function(req,res){
 	request.get(options, function(error, result, body) {
 		console.log(JSON.stringify(body));
 		console.log(result);
-		result = JSON.stringify(body);
+		results = JSON.stringify(body);
 	});
-	res.send(result);
+	res.send(results);
 	res.end();
 });
 
