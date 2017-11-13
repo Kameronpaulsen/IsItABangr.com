@@ -86,7 +86,7 @@
 				var searchText = $('#search').val();
 				console.log(searchText);
 				$.ajax({
-					url: '/googletrends/' + searchText,
+					url: 'https://api.spotify.com/v1/artists/'+searchTest'/top-tracks',
 					type: "GET",
 					success: function(results) {
 						search(results);
@@ -97,72 +97,6 @@
 
 		var search = function(results)
 		{	
-			var sum = 0;
-			var mean = 0;
-			var maxZScore=0;
-			var zScoreArray = new Array();
-			var standardDeviation= 0;
-			var jsonResult = new Object();
-			var debug = 0;
-			jsonResult = JSON.parse(results);
-			zScoreArray.length = jsonResult.default.timelineData.length;
-			//Sum all googletrends search values
-			for(var val of jsonResult.default.timelineData)
-			{
-				sum += val.value[0];
-			}
-			//compute mean of googletrends search values
-			mean = sum/jsonResult.default.timelineData.length;
-			//compute population mean of values
-			var runningSum = 0;
-			for(var val of jsonResult.default.timelineData)
-			{
-				runningSum += Math.pow((val.value[0]- mean),2);
-			}
-			//compute standard deviation
-			standardDeviation = Math.sqrt((runningSum/jsonResult.default.timelineData.length));
-			var i = 0;
-			//Compute zScore of every googletrend value. Zscore tells you how many standard deviations the value is from the mean
-			for (var val of jsonResult.default.timelineData)
-			{
-				zScoreArray[i] = (val.value[0]- mean)/standardDeviation;
-				i++;
-			}
-			maxZScore = Math.abs(Math.max.apply(Math,zScoreArray));
-			if(debug)
-			{
-				console.log(jsonResult);
-				console.log(zScoreArray);
-				console.log("max zScore: " + maxZScore);
-				$("#resultParagraph").text(results);
-			}
-			var resultText = "Nan";
-			if(0.0 <= maxZScore && maxZScore <= 2.0)
-			{
-				console.log(maxZScore);
-				resultText = "Here to Stay";
-			}
-			else if(2.0 < maxZScore && maxZScore <= 4.0)
-			{
-				resultText= "Not a Fad";
-			}
-			else if(4.0 < maxZScore && maxZScore <= 6.0)
-			{
-				resultText = "Pretty Trendy, Probably a Fad";
-			}
-			else if(6.0 < maxZScore && maxZScore <= 8.0)
-			{
-				resultText = "Definitely a Fad";
-			}
-			else if ( 8.0 < maxZScore && maxZScore <= 13.00)
-			{
-				resultText = "Gangnam Style Level Fad";
-			}
-			else
-			{
-				resultText = "So Hip We Don't Even Know What That Is";
-			}
-			console.log(maxZScore);
 			$("#resultParagraph").text(resultText);
 		}
 	</script>

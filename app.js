@@ -20,6 +20,13 @@ app.get('/test', function(req,res){
 });
 
 
+var server = app.listen(2000, function(){
+	var host= server.address().address
+	var port = server.address().port
+
+	console.log("example app listening at http://%s:%s", host, port)
+})
+
 /**
  * This is an example of a basic node.js script that performs
  * the Client Credentials oAuth2 flow to authenticate against
@@ -61,12 +68,5 @@ request.post(authOptions, function(error, response, body) {
     });
   }
 });
-
-var server = app.listen(2000, function(){
-	var host= server.address().address
-	var port = server.address().port
-
-	console.log("example app listening at http://%s:%s", host, port)
-})
 
 
