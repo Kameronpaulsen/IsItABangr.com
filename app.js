@@ -83,7 +83,7 @@ app.get('/search', function(req,res){
     request.get(options, function(error, response, body) {
       console.log(response);
     });
-	res.send("" + );
+	res.send("" + response);
 	console.log(response);
 });
 
