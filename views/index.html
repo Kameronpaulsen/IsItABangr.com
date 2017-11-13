@@ -88,6 +88,7 @@
 				$.ajax({
 					url: "https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02/top-tracks?country=US",
 					type: "GET",
+					'Authorization': 'Bearer ' + token
 					success: function(results) {
 						search(results);
 					}
