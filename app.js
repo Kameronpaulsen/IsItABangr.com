@@ -82,7 +82,7 @@ app.get('/search', function(req,res){
     };
     http.get(options,function(res){
     	console.log(res);
-    }
+    })
 });
 
 
