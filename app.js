@@ -89,9 +89,9 @@ app.get('/search', function(req,res){
 				},
 				json: true
 			};
-			request.get(options, function(error, response, body) {
+			request.get(options, function(error, res, body) {
 				console.log(JSON.stringify(body));
-				request.write(JSON.stringify(body))
+				res.write(JSON.stringify(body))
 			});
 		}
 	});
