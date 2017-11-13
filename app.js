@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(express.static('views'));
 app.use(express.static('public'));
 
+var client_id = '2367dfbe125f41368e5328db4ed5fa20'; // Your client id
+var client_secret = 'a344ef2ab3ab4ff5a88e0bf826014673'; // Your secret
+var token;
+
 app.get('/', function(req,res){
 	res.sendFile(_dirname + "/" + "index.html");
 });
@@ -36,8 +40,7 @@ var server = app.listen(2000, function(){
  * https://developer.spotify.com/web-api/authorization-guide/#client_credentials_flow
  */
 
-var client_id = '2367dfbe125f41368e5328db4ed5fa20'; // Your client id
-var client_secret = 'a344ef2ab3ab4ff5a88e0bf826014673'; // Your secret
+
 
 // your application requests authorization
 var authOptions = {
@@ -55,7 +58,7 @@ request.post(authOptions, function(error, response, body) {
   if (!error && response.statusCode === 200) {
 
     // use the access token to access the Spotify Web API
-    var token = body.access_token;
+    token = body.access_token;
     var options = {
       url: 'https://api.spotify.com/v1',
       headers: {
