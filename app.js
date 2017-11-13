@@ -81,7 +81,7 @@ app.get('/search', function(req,res){
       json: true
     };
     http.get(options,function(res){
-    	console.log(res);
+    	console.log(JSON.stringify(res));
     })
 });
 
