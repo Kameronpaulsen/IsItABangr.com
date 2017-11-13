@@ -80,12 +80,11 @@ app.get('/search', function(req,res){
 			'Authorization': 'Bearer ' + token
 		},
 		json: true
-
-		request.get(options, function(error, result, body) {
-			console.log(JSON.stringify(body));
-			responseText = JSON.stringify(body);
-		});
 	}
+	request.get(options, function(error, result, body) {
+		console.log(JSON.stringify(body));
+		responseText = JSON.stringify(body);
+	});
 	res.send(responseText);
 });
 
