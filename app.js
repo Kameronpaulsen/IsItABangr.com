@@ -85,7 +85,7 @@ app.get('/search/:keyword?', function(req,res){
 	}
 	request.get(options, function(error, result, body) {
 		jsonResult = JSON.parse(result);
-		id = jsonResult.artist.id;
+		//id = jsonResult.artist.id;
 		console.log(id);
 		res.send(result);
 	});
