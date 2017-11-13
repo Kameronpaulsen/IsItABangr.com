@@ -80,9 +80,20 @@ app.get('/search', function(req,res){
       },
       json: true
     };
-    http.get(options,function(res){
-    	console.log(JSON.stringify(res));
-    })
+    request.post(authOptions, function(error, response, body) {
+  		if (!error && response.statusCode === 200) {
+    var options = {
+      url: 'https://api.spotify.com/v1/artists/06HL4z0CvFAxyc27GXpf02',
+      headers: {
+        'Authorization': 'Bearer ' + token
+      },
+      json: true
+    };
+    request.get(options, function(error, response, body) {
+      console.log(JSON.stringify(body));
+    });
+  }
+		});
 });
 
 
