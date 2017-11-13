@@ -96,7 +96,7 @@ app.get('/search', function(req,res){
 			});
 		}
 	});
-	res.send(body);
+	req.send(body);
 });
 
 
